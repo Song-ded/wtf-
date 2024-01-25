@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #fullscreenContainer {
+            position: relative;
+        }
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        #overlayText {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 36px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div id="fullscreenContainer">
+    <img src="image.png" alt="Image" id="fullscreenImage">
+    <div id="overlayText">Нажми на картинку</div>
+</div>
+
+<audio id="audio">
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    const audio = document.getElementById('audio');
+    const overlayText = document.getElementById('overlayText');
+    fullscreenImage.addEventListener('click', () => {
+        audio.play();
+    });
+
+    audio.addEventListener('play', () => {
+        overlayText.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
